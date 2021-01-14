@@ -1,3 +1,4 @@
+import os
 from threading import Thread
 
 from PIL import Image
@@ -39,6 +40,7 @@ class Train(Thread):
                     self.__sheduler.save(charList[i], self.__capUtil.dimReducation(curImg))
             else:
                 self.__sheduler.rollback1()
+            os.remove(path)
 
 
 if __name__ == '__main__':
