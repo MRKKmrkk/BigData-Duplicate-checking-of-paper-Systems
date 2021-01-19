@@ -1,5 +1,6 @@
 package com.esni.flume.interceptor;
 
+import org.apache.flume.Context;
 import org.apache.flume.Event;
 import org.apache.flume.interceptor.Interceptor;
 
@@ -60,6 +61,22 @@ public class ETLInterceptor implements Interceptor {
     public void close() {
 
 
+
+    }
+
+    public static class Builder implements Interceptor.Builder {
+
+        public Interceptor build() {
+
+            return new ETLInterceptor();
+
+        }
+
+        public void configure(Context context) {
+
+
+
+        }
 
     }
 
