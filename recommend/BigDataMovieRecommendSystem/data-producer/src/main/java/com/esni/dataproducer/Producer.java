@@ -4,14 +4,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.util.Properties;
-import java.util.Random;
+import java.util.*;
 
 public class Producer {
 
     private Logger logger;
     private Properties properties;
-    private Random random;
+    private HashMap<Integer, HashSet<Integer>> likeMap;
+    private int movieStartIndex;
+    private int movieEndIndex;
+    private int userStarIndex;
+    private int userEndIndex;
 
     public Producer(String resourceName) throws IOException {
 
@@ -21,22 +24,32 @@ public class Producer {
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
         properties.load(loader.getResourceAsStream(resourceName));
 
-        random = new Random();
+        movieStartIndex = Integer.parseInt(properties.getProperty("movieid.min.index"));
+        movieEndIndex = Integer.parseInt(properties.getProperty("movieid.max.index"));
+        userStarIndex = Integer.parseInt(properties.getProperty("userid.min.index"));
+        userEndIndex = Integer.parseInt(properties.getProperty("userid.max.index"));
+
+        likeMap = new HashMap<Integer, HashSet<Integer>>();
+        for (int i = userStarIndex; i <= userEndIndex; i++) {
+            likeMap.put(i, new HashSet<Integer>());
+        }
+
+
 
     }
 
     private int getRandomNumber(int min, int max) {
 
-        return random.nextInt(max - min + max) + min;
+        return min + (int) (Math.random() * ((max - min) + 1));
 
     }
 
     /**
      * 将用户行为存储进日志
      */
-    private void logUserBehavior(int userId, String behavior) {
+    private void logUserBehavior(int userId, int movieId, String behavior) {
 
-        logger.info(userId + "\t" + behavior + "\t" + System.currentTimeMillis());
+        logger.info("behavior:" + userId + "\t" + movieId + "\t" + behavior + "\t" + System.currentTimeMillis());
 
     }
 
@@ -45,7 +58,7 @@ public class Producer {
      */
     private void logScore(int userId, int movieId) {
 
-        logger.info(userId + "\t" + movieId + "\t" + getRandomNumber(0, 5) + "\t" + System.currentTimeMillis());
+        logger.info("rating:" + userId + "\t" + movieId + "\t" + getRandomNumber(0, 5) + "\t" + System.currentTimeMillis());
 
     }
 
@@ -54,10 +67,7 @@ public class Producer {
      */
     private int getRandomMovieId() {
 
-        int startIndex = Integer.parseInt(properties.getProperty("movieid.min.index"));
-        int endIndex = Integer.parseInt(properties.getProperty("movieid.max.index"));
-
-        return getRandomNumber(startIndex, endIndex);
+        return getRandomNumber(movieStartIndex, movieEndIndex);
 
     }
 
@@ -66,35 +76,51 @@ public class Producer {
      */
     private int getRandomUserId() {
 
-        int startIndex = Integer.parseInt(properties.getProperty("userid.min.index"));
-        int endIndex = Integer.parseInt(properties.getProperty("userid.max.index"));
-
-        return getRandomNumber(startIndex, endIndex);
+        return getRandomNumber(userStarIndex, userEndIndex);
 
     }
 
     /**
      * 获取随机行为
      */
-//    private String getRandomBehavior() {
-//
-//        int key = getRandomNumber(0, 3);
-//        switch (key){
-//            case 0:
-//                return "click";
-//                break;
-//            case 1:
-//                return "search";
-//                break;
-//            case 2:
-//                return "like";
-//                break;
-//            case 3:
-//                return "unlike"
-//
-//        }
-//
-//    }
+    private void randomLogBehavior() {
+
+        String behavior = null;
+        int userID = getRandomUserId();
+        int movieId = getRandomMovieId();
+
+        while (behavior == null) {
+            int key = getRandomNumber(0, 3);
+
+            if (key == 0) {
+                behavior = "click";
+            }
+            if (key == 1) {
+                behavior = "search";
+            }
+            if (key == 2) {
+                //如果电影已经被收藏，则不难再次收藏
+                if (likeMap.get(userID).contains(movieId)) {
+                    continue;
+                }
+
+                likeMap.get(userID).add(movieId);
+                behavior = "like";
+            }
+            else{
+                //如果电影未被收藏则不能取消收藏
+                if (!likeMap.get(userID).contains(movieId)){
+                    continue;
+                }
+
+                likeMap.get(userID).remove(movieId);
+                behavior = "unlike";
+            }
+        }
+
+        logUserBehavior(userID, movieId, behavior);
+
+    }
 
     /**
      * 初始化评分数据，会遍历每一位用户并为他们随机对电影进行评分
@@ -104,10 +130,7 @@ public class Producer {
      */
     private void initScore() {
 
-        int startIndex = Integer.parseInt(properties.getProperty("userid.min.index"));
-        int endIndex = Integer.parseInt(properties.getProperty("userid.max.index"));
-
-        for (int userId = startIndex; userId <= endIndex; userId++) {
+        for (int userId = userStarIndex; userId <= userEndIndex; userId++) {
 
             int userLevel = getRandomNumber(1, 10);
             int s = 21;
@@ -132,16 +155,17 @@ public class Producer {
 
     /**
      * 模拟生产用户日志
-     * 每次启动时默认对评分数据进行初始化
      */
-    public void produce() {
+    public void produce(boolean isInitScoreData) {
 
         //初始化评分数据
-        initScore();
+        if (isInitScoreData) {
+            initScore();
+        }
 
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 20000; i++) {
             //随机产生行为数据
-            logUserBehavior(getRandomUserId(), );
+            randomLogBehavior();
         }
 
     }
