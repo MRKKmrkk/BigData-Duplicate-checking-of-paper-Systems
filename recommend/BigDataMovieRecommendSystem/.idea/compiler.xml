@@ -7,7 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="dataproducer" />
+        <module name="messagequeue" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="message-queue" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
