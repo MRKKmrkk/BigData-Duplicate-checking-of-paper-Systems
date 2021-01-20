@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="dataproducer" />
         <module name="messagequeue" />
+        <module name="statisticsrecommend" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
