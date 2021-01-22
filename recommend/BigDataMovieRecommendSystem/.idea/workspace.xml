@@ -2,13 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="084b4772-3353-4dd1-86f3-02ba213927eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/offline-recommend/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/als/ArgumentsTuning.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/scala_compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scala_compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/src/main/resources/offline-recommend.properties" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/src/main/resources/offline-recommend.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/OfflineRecommender.scala" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/OfflineRecommender.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/als/ALSTrainer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/als/ALSTrainer.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/als/ArgumentsTuning.scala" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/als/ArgumentsTuning.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/utils/RatingUtil.scala" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/utils/RatingUtil.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/OfflineRecommender$$anonfun$main$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/OfflineRecommender$.class" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/OfflineRecommender$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/OfflineRecommender.class" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/OfflineRecommender.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/als/ArgumentsTuning$.class" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/als/ArgumentsTuning$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/als/ArgumentsTuning.class" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/als/ArgumentsTuning.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$4$$anonfun$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$4$$anonfun$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$8$$anonfun$apply$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$8$$anonfun$apply$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$getUserAndMovieId$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$getUserAndMovieId$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$getUserAndMovieId$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$$anonfun$getUserAndMovieId$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$.class" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/target/classes/com/esni/offlinerecommend/utils/RatingUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offline-recommend/target/classes/offline-recommend.properties" beforeDir="false" afterPath="$PROJECT_DIR$/offline-recommend/target/classes/offline-recommend.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,8 +53,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/als/ArgumentsTuning.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="446">
+              <caret line="58" column="76" lean-forward="true" selection-start-line="58" selection-start-column="76" selection-end-line="58" selection-end-column="76" />
+              <folding>
+                <element signature="e#39#66#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/resources/offline-recommend.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -39,8 +74,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/OfflineRecommender.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="75" column="10" lean-forward="true" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
+            <state relative-caret-position="210">
+              <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
               <folding>
                 <element signature="e#35#61#0" expanded="true" />
               </folding>
@@ -51,8 +86,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/utils/RatingUtil.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="40" column="35" lean-forward="true" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+            <state relative-caret-position="252">
+              <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
               <folding>
                 <element signature="e#41#67#0" expanded="true" />
               </folding>
@@ -63,8 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/als/ALSTrainer.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="924">
-              <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
+            <state relative-caret-position="672">
+              <caret line="32" column="54" selection-start-line="32" selection-start-column="54" selection-end-line="32" selection-end-column="54" />
               <folding>
                 <element signature="e#39#65#0" expanded="true" />
               </folding>
@@ -94,6 +129,17 @@
       <find>1014</find>
       <find>behaviorsRdd</find>
       <find>movie_d</find>
+      <find>1</find>
+      <find>-2</find>
+      <find>-2.0</find>
+      <find>6.0</find>
+      <find>6\.0</find>
+      <find>7\.0</find>
+      <find>8\.0</find>
+      <find>6\.0\)</find>
+      <find>\w\.0\)</find>
+      <find>7\.0\)</find>
+      <find>jdbc</find>
     </findStrings>
     <replaceStrings>
       <replace>logpath</replace>
@@ -126,11 +172,11 @@
         <option value="$PROJECT_DIR$/offline-recommend/src/main/resources/als-model.properties" />
         <option value="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/com/esni/util/ALSUtil.scala" />
         <option value="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/als/ALSUtil.scala" />
-        <option value="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/als/ArgumentsTuning.scala" />
-        <option value="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/als/ALSTrainer.scala" />
-        <option value="$PROJECT_DIR$/offline-recommend/src/main/resources/offline-recommend.properties" />
         <option value="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinecommend/utils/RatingUtil.scala" />
+        <option value="$PROJECT_DIR$/offline-recommend/src/main/resources/offline-recommend.properties" />
         <option value="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/utils/RatingUtil.scala" />
+        <option value="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/als/ALSTrainer.scala" />
+        <option value="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/als/ArgumentsTuning.scala" />
         <option value="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/OfflineRecommender.scala" />
       </list>
     </option>
@@ -171,47 +217,45 @@
             <path>
               <item name="BigDataMovieRecommendSystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="BigDataMovieRecommendSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="offline-recommend" type="462c0819:PsiDirectoryNode" />
+              <item name="statistics-recommend" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BigDataMovieRecommendSystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="BigDataMovieRecommendSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="offline-recommend" type="462c0819:PsiDirectoryNode" />
+              <item name="statistics-recommend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BigDataMovieRecommendSystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="BigDataMovieRecommendSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="offline-recommend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BigDataMovieRecommendSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BigDataMovieRecommendSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="offline-recommend" type="462c0819:PsiDirectoryNode" />
+              <item name="statistics-recommend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BigDataMovieRecommendSystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="BigDataMovieRecommendSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="offline-recommend" type="462c0819:PsiDirectoryNode" />
+              <item name="statistics-recommend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="offlinerecommend" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BigDataMovieRecommendSystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="BigDataMovieRecommendSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="offline-recommend" type="462c0819:PsiDirectoryNode" />
+              <item name="statistics-recommend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="offlinerecommend" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BigDataMovieRecommendSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BigDataMovieRecommendSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="statistics-recommend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="statisticsrecommender" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -226,7 +270,7 @@
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.4310019" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.ignored.files" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -241,9 +285,15 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.OfflineRecommender">
-    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Application" />
-      <module name="dataproducer" />
+    <configuration name="ArgumentsTuning" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.esni.offlinerecommend.als.ArgumentsTuning" />
+      <module name="offlinerecommend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.esni.offlinerecommend.als.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -297,10 +347,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.OfflineRecommender" />
+        <item itemvalue="Application.ArgumentsTuning" />
         <item itemvalue="Application.Demo" />
         <item itemvalue="Application.StatisticsRecommender" />
         <item itemvalue="Application.Bootstrap" />
-        <item itemvalue="Application.Application" />
       </list>
     </recent_temporary>
   </component>
@@ -327,11 +377,11 @@
       <window_info id="UI Designer" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" weight="0.3297587" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.4858357" visible="true" weight="0.27345845" />
+      <window_info content_ui="combo" id="Project" order="6" sideWeight="0.4858357" weight="0.21380697" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" weight="0.35410765" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4022663" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" weight="0.7705383" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.5056657" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -521,20 +571,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-core_2.11/2.4.5/spark-core_2.11-2.4.5-sources.jar!/org/apache/spark/rdd/RDD.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-168">
-          <caret line="201" column="49" selection-start-line="201" selection-start-column="37" selection-end-line="201" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/com/esni/util/ArgumentsTuning.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/com/esni/util/ArgumentsTuning.scala" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-mllib_2.11/2.4.5/spark-mllib_2.11-2.4.5-sources.jar!/org/apache/spark/mllib/recommendation/ALS.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1024">
@@ -577,61 +614,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/resources/offline-recommend.properties">
+    <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinecommend/utils/RatingUtil.scala" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-core_2.11/2.4.5/spark-core_2.11-2.4.5-sources.jar!/org/apache/spark/rdd/RDD.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="35" lean-forward="true" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+        <state relative-caret-position="184">
+          <caret line="621" column="49" lean-forward="true" selection-start-line="621" selection-start-column="49" selection-end-line="621" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinecommend/utils/RatingUtil.scala">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-core_2.11/2.4.5/spark-core_2.11-2.4.5-sources.jar!/org/apache/spark/util/collection/ExternalAppendOnlyMap.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        <state relative-caret-position="99">
+          <caret line="152" column="6" selection-start-line="152" selection-start-column="6" selection-end-line="152" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-core_2.11/2.4.5/spark-core_2.11-2.4.5-sources.jar!/org/apache/spark/util/collection/ExternalSorter.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="188" column="8" selection-start-line="188" selection-start-column="8" selection-end-line="188" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/statistics-recommend/src/main/scala/com/esni/statisticsrecommender/StatisticsRecommender.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
           <folding>
-            <element signature="e#39#65#0" expanded="true" />
+            <element signature="e#40#66#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/als/ALSTrainer.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="924">
-          <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
+        <state relative-caret-position="672">
+          <caret line="32" column="54" selection-start-line="32" selection-start-column="54" selection-end-line="32" selection-end-column="54" />
           <folding>
             <element signature="e#39#65#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/statistics-recommend/src/main/scala/com/esni/statisticsrecommender/StatisticsRecommender.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-798">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/als/ArgumentsTuning.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="446">
+          <caret line="58" column="76" lean-forward="true" selection-start-line="58" selection-start-column="76" selection-end-line="58" selection-end-column="76" />
+          <folding>
+            <element signature="e#39#66#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/utils/RatingUtil.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="40" column="35" lean-forward="true" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+        <state relative-caret-position="252">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
           <folding>
             <element signature="e#41#67#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/resources/offline-recommend.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/OfflineRecommender.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="75" column="10" lean-forward="true" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
+        <state relative-caret-position="210">
+          <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
           <folding>
             <element signature="e#35#61#0" expanded="true" />
           </folding>

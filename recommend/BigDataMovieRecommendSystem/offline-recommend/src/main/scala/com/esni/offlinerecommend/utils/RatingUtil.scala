@@ -4,10 +4,14 @@ import java.io.InputStream
 import java.sql.{Connection, DriverManager}
 import java.util.Properties
 
-import com.esni.offlinerecommend.OfflineRecommender.{getConnection, sc}
 import org.apache.spark.SparkContext
 import org.apache.spark.mllib.recommendation.Rating
 import org.apache.spark.rdd.{JdbcRDD, RDD}
+
+/**
+  * Rating工具类
+  * 用于辅助获取数据
+  */
 
 object RatingUtil {
 
@@ -15,12 +19,19 @@ object RatingUtil {
   val properties = new Properties()
   properties.load(in)
 
+  /**
+    * 获取连接对象
+    */
   def getConnection(): Connection = {
 
-    DriverManager.getConnection(properties.getProperty("database.mysql.uri"), properties.getProperty("database.mysql.user"), properties.getProperty("database.mysql.password"))
+    DriverManager.getConnection(properties.getProperty("uri"), properties.getProperty("user"), properties.getProperty("password"))
 
   }
 
+  /**
+    * 读取用户行为并计算偏好值，
+    * 封装成为RDD[Rating]对象返回
+    */
   def getRatings(scoreLogFilePath: String, behaviorLogFilePath: String, sc: SparkContext): RDD[Rating] = {
 
     // 0	1984	5	1611039929077
@@ -67,15 +78,20 @@ object RatingUtil {
 
   }
 
-  def getUserAndMovieId: RDD[(Int, Int)] = {
+  /**
+    * 获取用户与电影的笛卡尔积
+    * 因为要执行笛卡尔积，所以每一次查询必须缓存
+    * 不然会出现多次查询数据库的情况，造成效率底下
+    */
+  def getUserAndMovieId(sc: SparkContext): RDD[(Int, Int)] = {
 
-    new JdbcRDD(sc, getConnection, "select user_id from user_info where user_id <= ? and user_id >= ?", 100000, 0, 1, rs => {
+    val userId = new JdbcRDD(sc, getConnection, "select user_id from user_info where user_id <= ? and user_id >= ?", 100000, 0, 1, rs => {
       rs.getInt(1)
-    } ).cartesian{
-      new JdbcRDD(sc, getConnection, "select movie_id from movie_info where movie_id <= ? and movie_id >= ?", 100000, 0, 1, rs => {
-        rs.getInt(1)
-      })
-    }
+    } ).cache()
+    val movieId = new JdbcRDD(sc, getConnection, "select movie_id from movie_info where movie_id <= ? and movie_id >= ?", 100000, 0, 1, rs => {
+      rs.getInt(1)
+    }).cache()
+    userId.cartesian(movieId)
 
   }
 
