@@ -2,13 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="084b4772-3353-4dd1-86f3-02ba213927eb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/statistics-recommend/src/main/scala/com/esni/statisticsrecommender/StatisticsRecommender.scala" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-recommend/src/main/scala/com/esni/statisticsrecommender/StatisticsRecommender.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/offline-recommend/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/als/ArgumentsTuning.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/scala_compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scala_compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/data-producer/target/" />
     <ignored path="$PROJECT_DIR$/message-queue/target/" />
     <ignored path="$PROJECT_DIR$/statistics-recommend/target/" />
+    <ignored path="$PROJECT_DIR$/offline-recommend/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,13 +27,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/statistics-recommend/src/main/scala/com/esni/statisticsrecommender/StatisticsRecommender.scala">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/als/ArgumentsTuning.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4314">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="336">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/OfflineRecommender.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="75" column="10" lean-forward="true" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
               <folding>
-                <element signature="e#40#66#0" expanded="true" />
+                <element signature="e#35#61#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/utils/RatingUtil.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="404">
+              <caret line="40" column="35" lean-forward="true" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+              <folding>
+                <element signature="e#41#67#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/als/ALSTrainer.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="924">
+              <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
+              <folding>
+                <element signature="e#39#65#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -38,6 +78,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Scala Object" />
       </list>
     </option>
   </component>
@@ -67,7 +108,6 @@
         <option value="$PROJECT_DIR$/data-producer/src/main/resources/logback.properties" />
         <option value="$PROJECT_DIR$/data-producer/src/main/resources/logback.xml" />
         <option value="$PROJECT_DIR$/data-producer/src/main/java/Application.java" />
-        <option value="$PROJECT_DIR$/data-producer/src/main/java/com/esni/Bootstrap.java" />
         <option value="$PROJECT_DIR$/data-producer/src/main/java/com/esni/dataproducer/Producer.java" />
         <option value="$PROJECT_DIR$/data-producer/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
@@ -78,6 +118,20 @@
         <option value="$PROJECT_DIR$/statistics-recommend/pom.xml" />
         <option value="$PROJECT_DIR$/statistics-recommend/src/main/resources/database.properties" />
         <option value="$PROJECT_DIR$/statistics-recommend/src/main/scala/com/esni/statisticsrecommender/StatisticsRecommender.scala" />
+        <option value="$PROJECT_DIR$/offline-recommend/pom.xml" />
+        <option value="$PROJECT_DIR$/offline-recommend/src/main/scala/Demo.scala" />
+        <option value="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/OfflineRecommend.scala" />
+        <option value="$PROJECT_DIR$/data-producer/src/main/java/com/esni/Bootstrap.java" />
+        <option value="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/com/esni/util/ArgumentsTuning.scala" />
+        <option value="$PROJECT_DIR$/offline-recommend/src/main/resources/als-model.properties" />
+        <option value="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/com/esni/util/ALSUtil.scala" />
+        <option value="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/als/ALSUtil.scala" />
+        <option value="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/als/ArgumentsTuning.scala" />
+        <option value="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/als/ALSTrainer.scala" />
+        <option value="$PROJECT_DIR$/offline-recommend/src/main/resources/offline-recommend.properties" />
+        <option value="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinecommend/utils/RatingUtil.scala" />
+        <option value="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/utils/RatingUtil.scala" />
+        <option value="$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/OfflineRecommender.scala" />
       </list>
     </option>
   </component>
@@ -95,10 +149,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="420" />
-    <option name="y" value="-15" />
-    <option name="width" value="978" />
-    <option name="height" value="1039" />
+    <option name="x" value="952" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -106,6 +159,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -113,18 +168,61 @@
               <item name="BigDataMovieRecommendSystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="BigDataMovieRecommendSystem" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="BigDataMovieRecommendSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BigDataMovieRecommendSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="offline-recommend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BigDataMovieRecommendSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BigDataMovieRecommendSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="offline-recommend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BigDataMovieRecommendSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BigDataMovieRecommendSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="offline-recommend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BigDataMovieRecommendSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BigDataMovieRecommendSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="offline-recommend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BigDataMovieRecommendSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BigDataMovieRecommendSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="offline-recommend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="offlinerecommend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BigDataMovieRecommendSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BigDataMovieRecommendSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="offline-recommend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="offlinerecommend" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="D:/java_project/LocalHadoop" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../simhash/spark-project" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.4310019" />
@@ -142,7 +240,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.StatisticsRecommender">
+  <component name="RunManager" selected="Application.OfflineRecommender">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Application" />
       <module name="dataproducer" />
@@ -156,6 +254,26 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.esni.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Demo" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="Demo" />
+      <module name="offlinerecommend" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OfflineRecommender" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.esni.offlinerecommend.OfflineRecommender" />
+      <module name="offlinerecommend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.esni.offlinerecommend.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -178,6 +296,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.OfflineRecommender" />
+        <item itemvalue="Application.Demo" />
         <item itemvalue="Application.StatisticsRecommender" />
         <item itemvalue="Application.Bootstrap" />
         <item itemvalue="Application.Application" />
@@ -207,10 +327,10 @@
       <window_info id="UI Designer" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" weight="0.3297587" />
-      <window_info content_ui="combo" id="Project" order="6" sideWeight="0.4858357" weight="0.43983403" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.4858357" visible="true" weight="0.27345845" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" weight="0.47592068" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" weight="0.35410765" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4022663" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -231,24 +351,24 @@
       <window_info anchor="right" id="Translation Assistant" order="9" weight="0.3297587" />
     </layout>
     <layout-to-restore>
-      <window_info id="Structure" order="0" sideWeight="0.5127479" side_tool="true" weight="0.3195021" />
+      <window_info id="Structure" order="0" sideWeight="0.5141643" side_tool="true" weight="0.5073727" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" weight="0.3297587" />
-      <window_info content_ui="combo" id="Project" order="6" sideWeight="0.48725212" visible="true" weight="0.24463807" />
+      <window_info content_ui="combo" id="Project" order="6" sideWeight="0.4858357" visible="true" weight="0.27345845" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.48090523" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" weight="0.35410765" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4022663" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.31541726" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50067025" side_tool="true" weight="0.3026874" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.31444758" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.21514745" />
@@ -278,13 +398,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data-producer/src/main/java/Application.java" />
-    <entry file="jar://D:/Program Files/Java/jdk1.8.0_251/src.zip!/java/lang/Integer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="829" selection-start-line="829" selection-end-line="829" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data-producer/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
@@ -303,23 +416,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data-producer/src/main/java/com/esni/Bootstrap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/statistics-recommend/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-688">
-          <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -383,13 +479,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data-producer/src/main/resources/data-producer.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-sql_2.11/2.4.5/spark-sql_2.11-2.4.5-sources.jar!/org/apache/spark/sql/DataFrameWriter.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="541">
@@ -400,19 +489,151 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/statistics-recommend/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/Demo.scala" />
+    <entry file="file://$PROJECT_DIR$/data-producer/src/main/java/com/esni/Bootstrap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="56" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-mllib_2.11/2.4.5/spark-mllib_2.11-2.4.5.jar!/org/apache/spark/mllib/recommendation/MatrixFactorizationModel.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-core_2.11/2.4.5/spark-core_2.11-2.4.5-sources.jar!/org/apache/spark/rdd/JdbcRDD.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="50" column="49" lean-forward="true" selection-start-line="50" selection-start-column="49" selection-end-line="50" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-core_2.11/2.4.5/spark-core_2.11-2.4.5-sources.jar!/org/apache/spark/rdd/RDD.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-168">
+          <caret line="201" column="49" selection-start-line="201" selection-start-column="37" selection-end-line="201" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/com/esni/util/ArgumentsTuning.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-mllib_2.11/2.4.5/spark-mllib_2.11-2.4.5-sources.jar!/org/apache/spark/mllib/recommendation/ALS.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1024">
+          <caret line="352" column="50" lean-forward="true" selection-start-line="352" selection-start-column="50" selection-end-line="352" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-mllib_2.11/2.4.5/spark-mllib_2.11-2.4.5-sources.jar!/org/apache/spark/mllib/recommendation/MatrixFactorizationModel.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="123" column="13" lean-forward="true" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_251/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="541" column="18" selection-start-line="541" selection-start-column="18" selection-end-line="541" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/offline-recommend/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-producer/src/main/resources/data-producer.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/statistics-recommend/src/main/resources/database.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="8" lean-forward="true" selection-start-column="8" selection-end-column="8" />
+        <state relative-caret-position="42">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/resources/offline-recommend.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="35" lean-forward="true" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinecommend/utils/RatingUtil.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <folding>
+            <element signature="e#39#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/als/ALSTrainer.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="924">
+          <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
+          <folding>
+            <element signature="e#39#65#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/statistics-recommend/src/main/scala/com/esni/statisticsrecommender/StatisticsRecommender.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4314">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="-798">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/als/ArgumentsTuning.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/utils/RatingUtil.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="40" column="35" lean-forward="true" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
           <folding>
-            <element signature="e#40#66#0" expanded="true" />
+            <element signature="e#41#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/offline-recommend/src/main/scala/com/esni/offlinerecommend/OfflineRecommender.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="75" column="10" lean-forward="true" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
+          <folding>
+            <element signature="e#35#61#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -469,7 +690,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>statisticsrecommend</last-edited>
+          <last-edited>offlinerecommend</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

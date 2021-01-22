@@ -12,6 +12,7 @@
         <module>data-producer</module>
         <module>message-queue</module>
         <module>statistics-recommend</module>
+        <module>offline-recommend</module>
     </modules>
 
 
