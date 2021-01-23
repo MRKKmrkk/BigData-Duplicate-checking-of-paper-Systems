@@ -42,6 +42,12 @@
             <version>5.1.45</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.jblas</groupId>
+            <artifactId>jblas</artifactId>
+            <version>1.2.2</version>
+        </dependency>
+
     </dependencies>
 
     <!--    scala打包插件    -->

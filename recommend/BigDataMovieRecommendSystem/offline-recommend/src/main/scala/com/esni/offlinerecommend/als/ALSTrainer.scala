@@ -16,6 +16,7 @@ class ALSTrainer(ratings: RDD[Rating]) {
   private val in: InputStream = Thread.currentThread().getContextClassLoader.getResourceAsStream("offline-recommend.properties")
   val properties = new Properties()
   properties.load(in)
+  var model: MatrixFactorizationModel = null
 
   /**
     * 通过传入的ratings训练并获取模型
@@ -24,7 +25,9 @@ class ALSTrainer(ratings: RDD[Rating]) {
     */
   def trainModel(rank: Int, lambda: Double): MatrixFactorizationModel = {
 
-    ALS.train(ratings, rank, properties.getProperty("model.arg.iterations").toInt, lambda)
+    model = ALS.train(ratings, rank, properties.getProperty("model.arg.iterations").toInt, lambda)
+
+    model
 
   }
 
@@ -34,9 +37,10 @@ class ALSTrainer(ratings: RDD[Rating]) {
     */
   def predict(usersProducts: RDD[(Int, Int)],rank: Int=properties.getProperty("model.arg.rank").toInt,
               lambda: Double=properties.getProperty("model.arg.lambda").toDouble): RDD[Rating] = {
-    val model = trainModel(rank, lambda)
+    model = trainModel(rank, lambda)
     model.predict(usersProducts)
 
   }
+
 
 }
