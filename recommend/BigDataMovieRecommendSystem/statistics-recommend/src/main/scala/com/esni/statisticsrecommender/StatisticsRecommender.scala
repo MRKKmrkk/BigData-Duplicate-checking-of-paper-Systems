@@ -3,10 +3,9 @@ package com.esni.statisticsrecommender
 import java.io.InputStream
 import java.util.Properties
 
+import com.esni.statisticsrecommender.bean.Score
 import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
 import org.apache.spark.{SparkConf, SparkContext}
-
-case class Score(userId: Int, movieId: Int, score: Int, ts: Long)
 
 /**
   * 存在的问题
