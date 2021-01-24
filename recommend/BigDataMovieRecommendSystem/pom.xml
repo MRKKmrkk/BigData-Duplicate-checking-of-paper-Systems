@@ -13,6 +13,7 @@
         <module>message-queue</module>
         <module>statistics-recommend</module>
         <module>offline-recommend</module>
+        <module>realtime-recommend</module>
     </modules>
 
 

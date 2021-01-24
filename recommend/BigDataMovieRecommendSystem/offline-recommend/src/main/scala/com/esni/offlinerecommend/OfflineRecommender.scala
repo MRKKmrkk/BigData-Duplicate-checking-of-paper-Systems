@@ -102,10 +102,11 @@ object OfflineRecommender {
     val ratings = RatingUtil.getRatings("D:\\Projects\\dpystem\\recommend\\testData\\ur.log",
       "D:\\Projects\\dpystem\\recommend\\testData\\ub.log", sc)
     val trainer = new ALSTrainer(ratings)
+    trainer.trainModel(90, 0.01)
 
-    val userAndMovieId = RatingUtil.getUserAndMovieId(sc)
+//    val userAndMovieId = RatingUtil.getUserAndMovieId(sc)
 
-    recommendDependOnUser(trainer, userAndMovieId)
+//    recommendDependOnUser(trainer, userAndMovieId)
     recommendDependOnMovie(trainer)
 
     session.close()
