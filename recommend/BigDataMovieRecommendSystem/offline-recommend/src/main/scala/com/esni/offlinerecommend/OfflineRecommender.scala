@@ -14,8 +14,8 @@ import org.jblas.DoubleMatrix
 object OfflineRecommender {
 
   val conf: SparkConf = new SparkConf().setAppName("offline recommender").setMaster("local[*]")
-  val sc = new SparkContext(conf)
   val session: SparkSession = SparkSession.builder().config(conf).getOrCreate()
+  val sc: SparkContext = session.sparkContext
 
   private val in: InputStream = Thread.currentThread().getContextClassLoader.getResourceAsStream("offline-recommend.properties")
   val properties = new Properties()

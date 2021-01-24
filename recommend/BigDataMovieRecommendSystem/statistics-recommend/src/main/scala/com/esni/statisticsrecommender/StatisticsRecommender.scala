@@ -17,8 +17,8 @@ import org.apache.spark.{SparkConf, SparkContext}
 object StatisticsRecommender {
 
   val conf: SparkConf = new SparkConf().setAppName("Statistics Recommender").setMaster("local[*]")
-  val sc: SparkContext = new SparkContext(conf)
   val session: SparkSession = SparkSession.builder().config(conf).getOrCreate()
+  val sc: SparkContext = session.sparkContext
 
   val properties = new Properties()
   private val loader: ClassLoader = Thread.currentThread().getContextClassLoader
