@@ -1,6 +1,6 @@
-package com.esni;
+package com.esni.dataproduce;
 
-import com.esni.dataproducer.Producer;
+import com.esni.dataproduce.bean.Producer;
 
 import java.io.IOException;
 
