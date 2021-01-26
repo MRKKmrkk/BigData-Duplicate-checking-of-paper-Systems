@@ -61,7 +61,7 @@ public class ETLInterceptor implements Interceptor {
             String score = line.split("rating:")[1];
             String[] fields = score.split("\t");
 
-            jedis.lpush("user_id:" + fields[0], "movie_id:" + fields[1]);
+            jedis.lpush("user_id:" + fields[0], fields[1] + ":" + fields[2]);
 
             event.setBody(score.getBytes());
             event.setHeaders(ratingActor);

@@ -4,7 +4,7 @@ import java.io.InputStream
 import java.util.Properties
 
 import com.esni.offlinerecommend.als.ALSTrainer
-import com.esni.offlinerecommend.bean.{MovieSimMatrix, OfflineMovieRecommend, OfflineUserRecommend}
+import com.esni.offlinerecommend.bean.{OfflineMovieRecommend, OfflineUserRecommend}
 import com.esni.offlinerecommend.utils.RatingUtil
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
@@ -77,19 +77,19 @@ object OfflineRecommender {
     import session.implicits._
     val result = carMovieFeature
       .map{case (mf1, mf2) => (mf1._1, (mf2._1, consineSim(mf1._2, mf2._2)))}
-      .filter(_._2._2 > properties.getProperty("sim.filter.threshold").toDouble)
+      .filter(_._2._2 > properties.getProperty("sim.fileter.threshold").toDouble)
       .groupByKey()
-      .map(item => (item._1, item._2.toList.sortWith(_._2 > _._2)))
+      .map(item => (item._1, item._2.toList.sortWith(_._2 > _._2).take(10)))
       .map{case (k, l) =>
-        var line = ""
-        for (movieSimTup <- l) {
-          line += movieSimTup._1 + ":" + movieSimTup._2.formatted("%.2f") + " "
+        val newL = Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
+        for (i <- l.indices){
+          newL(i) = l(i)._1
         }
-        MovieSimMatrix(k, line)
+        OfflineMovieRecommend(k, newL(0), newL(1), newL(2), newL(3), newL(4), newL(5), newL(6), newL(7), newL(8), newL(9))
       }
       .toDF()
 
-    saveInMysql(result, "movie_sim_matrix")
+    saveInMysql(result, "offline_movie_recommend")
 
   }
 

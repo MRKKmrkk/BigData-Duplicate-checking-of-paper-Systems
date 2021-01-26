@@ -14,7 +14,7 @@ public class RedisDemo {
         String line = null;
         while ((line = reader.readLine()) != null) {
             String[] fields = line.split("\t");
-            jedis.lpush("user_id:" + fields[0], "movie_id:" + fields[1]);
+            jedis.lpush("user_id:" + fields[0], fields[1] + ":" + fields[2]);
         }
 
         jedis.close();
