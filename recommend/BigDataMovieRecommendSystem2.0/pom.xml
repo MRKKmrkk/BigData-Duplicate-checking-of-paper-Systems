@@ -11,6 +11,8 @@
     <modules>
         <module>recommend-common</module>
         <module>recommend-dataproduce</module>
+        <module>statistics-recommend</module>
+        <module>offline-recommend</module>
     </modules>
 
 

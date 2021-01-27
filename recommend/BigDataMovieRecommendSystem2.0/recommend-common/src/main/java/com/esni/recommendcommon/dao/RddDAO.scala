@@ -6,12 +6,12 @@ import org.apache.spark.rdd.RDD
 
 trait RddDAO extends RecommenderDao {
 
-  def readScoreRdd(sc: SparkContext, path: String): RDD[(Int, Int, Double, Long)] = {
+  def readScoreRdd(sc: SparkContext, path: String): RDD[(Int, Int, Int, Long)] = {
 
     sc
       .textFile(path)
       .map(_.split("\t"))
-      .map(l => (l(0).toInt, l(1).toInt, l(2).toDouble, l(3).toLong))
+      .map(l => (l(0).toInt, l(1).toInt, l(2).toInt, l(3).toLong))
 
   }
 
