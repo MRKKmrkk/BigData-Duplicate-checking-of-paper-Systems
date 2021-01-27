@@ -6,15 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="offlinerecommend" />
-        <module name="dataproducer" />
-        <module name="statisticsrecommend" />
-        <module name="realtimerecommend" />
-        <module name="messagequeue" />
+        <module name="recommendcommon" />
+        <module name="recommenddataproduce" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="message-queue" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>
