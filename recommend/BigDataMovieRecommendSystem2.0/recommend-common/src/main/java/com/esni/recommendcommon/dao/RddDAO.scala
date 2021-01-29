@@ -4,7 +4,7 @@ import com.esni.recommendcommon.common.RecommenderDao
 import org.apache.spark.SparkContext
 import org.apache.spark.rdd.RDD
 
-trait RddDAO extends RecommenderDao {
+trait RddDao extends RecommenderDao {
 
   def readScoreRdd(sc: SparkContext, path: String): RDD[(Int, Int, Int, Long)] = {
 
