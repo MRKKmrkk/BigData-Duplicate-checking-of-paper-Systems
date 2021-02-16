@@ -1,0 +1,167 @@
+*{
+    margin:0;
+    padding:0;
+}
+#movie-info-box{
+    height:800px;
+    width: 100%;
+    margin-top: 40px;
+}
+.movie-info{
+    height: 100%;
+    width: 1200px;
+    margin: auto;
+}
+.movie-name-box{
+    height: 45px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.movie-name-box h1{
+    color: #494949;
+    font-family:Helvetica,Arial,sans-serif;
+}
+.movie-year{
+    color: #888888;
+}
+.movie-infomation{
+    height: 350px;
+    width: 100%;
+    background: linear-gradient(to left, #374050,white);
+    padding-top: 40px;
+}
+.movie-img-box{
+    height: 310px;
+    width: 225px;
+    float: left;
+}
+.movie-img-box img{
+    height: 310px;
+    width: 225px;
+}
+.movie-masg{
+    height: 310px;
+    width:955px;
+    float: right;
+    margin-left: 20px;
+    font: 20px Helvetica,Arial,sans-serif;
+    color: #666666;
+}
+.movie-masg a{
+    text-decoration: unset;
+    color: #3377AA;
+    margin-left: 10px;
+}
+.dy-box{
+    height: 20px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.dy{
+    display: block;
+    height: 100%;
+    width: 60px;
+    float: left;
+}
+.yy-box{
+    width: 70%;
+    height: 100%;
+    float: left;
+}
+.yy-name{
+    display: block;
+    width: 73px;
+    height: 100%;
+    float: left;
+}
+.type-box{
+    display: block;
+    width: 65px;
+    height: 100%;
+    float: left;
+    color: black;
+}
+.address-box{
+    display: block;
+    height: 100%;
+    width: 150px;
+    float: left;
+}
+.country-box{
+    display: block;
+    width: 80px;
+    height: 100%;
+    float: left;
+    color: black;
+}
+.data-time{
+    display: block;
+    width: 200px;
+    height: 100%;
+    float: left;
+    color: black;
+    margin-top: 3px;
+}
+.data-box{
+    display: block;
+    height: 100%;
+    width: 100px;
+    float: left;
+}
+.other-name{
+    display: block;
+    width: 200px;
+    height: 100%;
+    float: left;
+    color: black;
+}
+#bootom-masg{
+    width: 100%;
+    height: 200px;
+    margin-top: 15px;
+
+}
+.like-style{
+    width: 100%;
+    height: 30px;
+}
+.like-box{
+    width: 225px;
+    height: 30px;
+    float: right;
+}
+.button-box{
+    display: block;
+    width:30px;
+    height: 20px;
+    font-size: 15px;
+    background-color: #e7902a;
+    border: 1px solid darkorange;
+    border-radius: 5px;
+    padding: 3px 20px;
+    float: left;
+}
+.firstbut{
+    margin: 0px 25px;
+}
+.button-box a{
+    text-decoration: unset;
+    color: white;
+}
+
+.movie-indius{
+    width: 100%;
+    height:150px;
+    margin-top: 20px;
+}
+.movie-font{
+    width: 100%;
+    height: 100%;
+}
+.movie-brief{
+    font-size: 20px;
+    color: #666666;
+    margin-top: 10px;
+}
+
+

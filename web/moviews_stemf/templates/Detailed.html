@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/vue.js"></script>
+</head>
+<body>
+{% include "Header.html" %}
+<div id="movie-info-box">
+    <div class="movie-info">
+        <div class="movie-name-box">
+            <h1>
+                <span class="movie-name">吉祥如意</span>
+                <span class="movie-year">(2021)</span>
+            </h1>
+        </div>
+        <div class="movie-infomation">
+            <div class="movie-img-box">
+                <img src="../static/img/moviesimg/七宗罪.jpg">
+            </div>
+            <div class="movie-masg">
+                <div class="dy-box">
+                    <span class="dy">
+                        导演：
+                    </span>
+                    <span class="dy-name">
+                        <a href="#">大鹏</a>
+                    </span>
+                </div>
+                <div class="dy-box">
+                    <span class="dy">
+                        编剧：
+                    </span>
+                    <span class="dy-name">
+                        <a href="#">大鹏</a>
+                    </span>
+                </div>
+                <div class="dy-box">
+                    <span class="dy">
+                        主演：
+                    </span>
+                    <div class="yy-box">
+                        <span class="yy-name" v-for="(item,index) in yylist">
+                            <a href="#">
+
+                                {% verbatim %}
+                                {{ item }}
+                                {% endverbatim %}
+
+                            </a>
+                        </span>
+                    </div>
+                </div>
+                <div class="dy-box">
+                    <span class="dy">
+                        类型：
+                    </span>
+                    <span class="type-box">
+                        剧情
+                    </span>
+                    <span class="type-box">
+                        家庭
+                    </span>
+                </div>
+                <div class="dy-box">
+                    <span class="address-box">
+                        制片国家/地区：
+                    </span>
+                    <span class="country-box">
+                        中国大陆
+                    </span>
+                </div>
+                <div class="dy-box">
+                    <span class="dy">
+                        语言：
+                    </span>
+                    <span class="type-box">中文</span>
+                </div>
+                <div class="dy-box">
+                    <span class="data-box">
+                        上映日期：
+                    </span>
+                    <span class="data-time">
+                        2021-01-29
+                    </span>
+                </div>
+                <div class="dy-box">
+                    <span class="dy">片长：</span>
+                    <span class="type-box">80分钟</span>
+                </div>
+                <div class="dy-box">
+                    <span class="dy">又名：</span>
+                    <span class="other-name">肖申克的救赎</span>
+                </div>
+            </div>
+        </div>
+        <div id="bootom-masg">
+            <div class="like-style">
+                <div class="like-box">
+                <span class="button-box firstbut">
+                    <a href="#">
+                        有趣
+                    </a>
+                </span>
+                    <span class="button-box">
+                    <a href="/detailed?like=0">
+                        无趣
+                    </a>
+                </span>
+                </div>
+            </div>
+            <div class="movie-indius">
+                <div class="movie-font">
+                    <h2>影片简介</h2>
+                    <div class="movie-brief">
+                        &nbsp;&nbsp;&nbsp;&nbsp;故事发生于封神大战后。姜子牙率领众神伐纣，赢得封神大战胜利，以为可以唤回世间安宁。然而，一切并未结束。一个偶然，姜子牙发现了原来“封神大战”之下酝酿着更大的阴谋。姜子牙开始踏上探寻真相的旅途
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<link rel="stylesheet" href="../static/css/header.css">
+<link rel="stylesheet" href="../static/css/detailed.css">
+<script>
+    var header = new Vue({
+        el: '#header',
+        data() {
+            return {
+                maniulist: ['首页', '分类', '实时', '热门', '高评', '最新'],
+                activehref: ['/recommon', '/movieslist', '/realtime', '/hot', '/height', '/new']
+            }
+        },
+    });
+    var movieinfo = new Vue({
+        el: '#movie-info-box',
+        data() {
+            return {
+                yylist: ['陈奕迅', '陈奕迅', '陈奕迅']
+            }
+        }
+    })
+</script>
+</html>
