@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/vue.js"></script>
+</head>
+<body>
+{% include "Header.html" %}
+<div id="center-box">
+    <div class="center-blk">
+        <div class="title-box">
+            <span class="font-box">
+                高评电影：
+            </span>
+            <div class="flash-but">
+            </div>
+        </div>
+        <div class="movies-real">
+            <ul class="movies-box">
+                <li class="movies-item">
+                    <div class="movies-img-box">
+                        <a href="#">
+                            <img src="../static/img/moviesimg/怦然心动.jpg">
+                        </a>
+                    </div>
+                    <div class="movies-name-box">
+                        <a href="#" class="movies-masg">
+                            怦然心动
+                        </a>
+                        <span class="radius">突然喜欢你</span>
+                        <div class="sping">
+                            <span class="sping-font">9.7</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+</body>
+<link rel="stylesheet" href="../static/css/header.css">
+<link rel="stylesheet" href="../static/css/realtime.css">
+<script>
+    var header = new Vue({
+        el: '#header',
+        data() {
+            return {
+                maniulist: ['首页', '分类', '实时', '热门', '高评', '最新'],
+                activehref: ['/recommon', '/movieslist', '/realtime', '/hot', '/height', '/new'],
+                number: 4,
+            }
+        },
+        methods: {
+            active(abc) {
+                this.number = abc
+                console.log(abc)
+            }
+        }
+    });
+</script>
+</html>

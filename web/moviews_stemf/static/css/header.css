@@ -1,0 +1,133 @@
+#spack {
+    height: 45px;
+    width: 100%;
+}
+
+#header {
+    height: 138px;
+    width: 100%;
+}
+
+.logo-style {
+    width: 1000px;
+    height: 74px;
+    margin: auto;
+}
+
+.logo-img-box {
+    height: 100%;
+    width: 337px;
+    float: left;
+    margin-left: 50px;
+    background-image: url("../img/logo.png");
+}
+
+.search-box {
+    height: 37px;
+    width: 430px;
+    float: left;
+    margin: 19px 0px;
+}
+
+.search {
+    width: 100%;
+    display: flex;
+    height: 100%;
+    /*border: 1px solid red;*/
+}
+.search form{
+    width: 350px;
+    height: 37px;
+    float: left;
+}
+
+.search input {
+    float: left;
+    flex: 4;
+    height: 37px;
+    outline: none;
+    border: 1px solid #333f51;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.search button {
+    width: 80px;
+    float: right;
+    flex: 1;
+    height: 37px;
+    background-color: #333f51;
+    color: white;
+    border-style: none;
+    outline: none;
+
+}
+
+.search button i {
+    font-style: normal;
+}
+
+.search button:hover {
+    font-size: 16px;
+}
+
+.login-box{
+    float: left;
+    width: 100px;
+    height: 100%;
+    margin-left: 33px;
+}
+.login{
+    height: 45px;
+    width: 45px;
+    margin: 15px auto;
+}
+.login img{
+    width: 100%;
+    height: 100%;
+}
+
+.mniu-list-box {
+    width: 100%;
+    height: 50px;
+    background-color: #333f51;
+    margin-top: 20px;
+}
+
+.mniu-list {
+    height: 100%;
+    width: 1000px;
+    margin: auto;
+}
+
+.item-list {
+    list-style: none;
+    height: 100%;
+    width: 100%;
+}
+
+.item {
+    height: 48px;
+    width: 70px;
+    float: left;
+    margin-right: 48px;
+    margin-left: 48px;
+}
+
+.active {
+    border-bottom: 2px solid red;
+    background-color: black;
+}
+
+.item a {
+    display: block;
+    text-decoration: unset;
+    color: white;
+    font-size: 15px;
+    font-family: 'Microsoft YaHei UI';
+    text-align: center;
+    line-height: 100%;
+    padding: 18px 8px;
+    /*border-bottom: 3px solid hotpink;*/
+    /*background-color: #000000;*/
+}
