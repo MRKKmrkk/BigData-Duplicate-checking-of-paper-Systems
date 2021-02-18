@@ -10,7 +10,7 @@ public class RedisDemo {
 
         Jedis jedis = new Jedis("hadoop03", 6379);
 
-        BufferedReader reader = new BufferedReader(new FileReader(new File("D:\\Projects\\dpystem\\recommend\\testData\\ur.log")));
+        BufferedReader reader = new BufferedReader(new FileReader(new File("D:\\Projects\\dpystem\\recommend\\testData2.0\\ur")));
         String line = null;
         while ((line = reader.readLine()) != null) {
             String[] fields = line.split("\t");

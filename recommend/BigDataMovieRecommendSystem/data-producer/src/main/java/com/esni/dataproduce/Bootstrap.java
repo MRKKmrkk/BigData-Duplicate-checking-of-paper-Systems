@@ -9,7 +9,7 @@ public class Bootstrap {
     public static void main(String[] args) throws IOException {
 
         Producer producer = new Producer("data-producer.properties");
-        producer.produce(true);
+        producer.produce(false);
 
     }
 

@@ -1,16 +1,15 @@
 package com.esni.offlinerecommend.service
 
-import com.esni.offlinerecommend.bean.ALSTrainer
-import com.esni.offlinerecommend.dao.{MovieMatrixCacheDao, RddFromMysqlDao}
+import com.esni.offlinerecommend.bean.MovieSimMatrix
+import com.esni.offlinerecommend.dao.RddFromMysqlDao
 import com.esni.recommendcommon.common.RecommenderService
 import com.esni.recommendcommon.util.PropertiesUtil
 import org.apache.spark.mllib.recommendation.MatrixFactorizationModel
 import org.apache.spark.rdd.RDD
 import org.jblas.DoubleMatrix
+import redis.clients.jedis.Jedis
 
 class OfflineRecommderService(model: MatrixFactorizationModel, userAndMovieId: RDD[(Int, Int)], rddFromMysqlDao: RddFromMysqlDao) extends RecommenderService{
-
-  private val cacheDao: MovieMatrixCacheDao = new MovieMatrixCacheDao
 
   /**
     * 计算两个矩阵之间的余弦相似度
@@ -37,10 +36,12 @@ class OfflineRecommderService(model: MatrixFactorizationModel, userAndMovieId: R
   }
 
   /**
-    * 基于电影的推荐
-    * 将计算电影相似度矩阵，并将矩阵缓存进redis中
+    * 计算电影相似度矩阵
+    * 并将相似度矩阵存入mysql中
     */
-  def recommendDependOnMovie(trainer: ALSTrainer): Unit = {
+  def saveMovieSimMatrix(): Unit = {
+
+    val threshold = PropertiesUtil.getProperties("offline-recommend.properties").getProperty("sim.filter.threshold").toDouble
 
     val moviesFeature = model
       .productFeatures
@@ -53,21 +54,80 @@ class OfflineRecommderService(model: MatrixFactorizationModel, userAndMovieId: R
       .cartesian(moviesFeature)
       .filter{case (mf1, mf2) => mf1._1 != mf2._1}
 
-    val result = carMovieFeature
-      .map{case (mf1, mf2) => (mf1._1, (mf2._1, consineSim(mf1._2, mf2._2)))}
-      .filter(_._2._2 > PropertiesUtil.getProperties("offline-recommend.properties").getProperty("sim.filter.threshold").toDouble)
+    val result: RDD[MovieSimMatrix] = carMovieFeature
+      .map{case (mf1, mf2) =>
+        (mf1._1, (mf2._1, mf1._2.dot(mf2._2) / (mf1._2.norm2() * mf1._2.norm2())))
+      }
+      .filter(_._2._2 > threshold)
       .groupByKey()
       .map(item => (item._1, item._2.toList.sortWith(_._2 > _._2)))
-    
-    cacheDao.cacheMovieSimMatrix(result)
+      .map{
+        case (k, l) =>
+          var line = ""
+          l.foreach{
+            item =>
+              line += item._1 + "," + item._2.formatted("%.2f") + " "
+          }
+          MovieSimMatrix(k, line.trim)
+      }
+
+
+
+  }
+
+  /**
+    * 基于电影的推荐
+    * 将计算电影相似度矩阵，并将矩阵缓存进redis中
+    */
+  def cacheMovieMatrix(): Unit = {
+
+    val threshold = PropertiesUtil.getProperties("offline-recommend.properties").getProperty("sim.filter.threshold").toDouble
+
+    val moviesFeature = model
+      .productFeatures
+      .map{
+        case (movieId, features) =>
+          (movieId, new DoubleMatrix(features))
+      }
+
+    val carMovieFeature = moviesFeature
+      .cartesian(moviesFeature)
+      .filter{case (mf1, mf2) => mf1._1 != mf2._1}
+
+    val result: RDD[(Int, List[(Int, Double)])] = carMovieFeature
+      .map{case (mf1, mf2) =>
+        (mf1._1, (mf2._1, mf1._2.dot(mf2._2) / (mf1._2.norm2() * mf1._2.norm2())))
+      }
+      .filter(_._2._2 > threshold)
+      .groupByKey()
+      .map(item => (item._1, item._2.toList.sortWith(_._2 > _._2)))
+
+    result
+      .foreachPartition{
+        rdds =>
+          val jedis = new Jedis("hadoop03", 6379, 100000)
+          rdds.foreach{
+            case (k, l) =>
+              l.foreach{x => jedis.hset(k.toString, x._1.toString, x._2.toString)}
+          }
+          jedis.close()
+      }
 
   }
 
   override def execute(): Unit = {
 
     recommendDependOnUser()
+//    cacheMovieMatrix()
 
+    saveMovieSimMatrix()
 
   }
+
+}
+
+object JedisUtil{
+
+  val jedis: Jedis = new Jedis("hadoop03", 6379, 100000)
 
 }

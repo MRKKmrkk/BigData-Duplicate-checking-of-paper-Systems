@@ -11,14 +11,16 @@ trait RecommenderApplication {
 
     EnvironmentUtil.setArguments(args)
     val conf: SparkConf = new SparkConf().setAppName(appName).setMaster("local[*]")
+
     var sc: SparkContext = null
     var session: SparkSession = null
     var jedis: Jedis = null
 
     if (createJedis){
-      jedis = RedisUtil.getJedis(PropertiesUtil.getProperties("redis.properties"))
+      jedis = RedisUtil.getJedis()
       EnvironmentUtil.setLocalJedis(jedis)
     }
+
     if (createSession){
       session = SparkSession.builder().config(conf).getOrCreate()
       sc = session.sparkContext
@@ -30,12 +32,13 @@ trait RecommenderApplication {
       EnvironmentUtil.setSparkContext(sc)
     }
 
-    try {
-      operation
-    }
-    catch {
-      case ex => println(ex.getMessage)
-    }
+//    try {
+//      operation
+//    }
+//    catch {
+//      case ex => println(ex.getMessage)
+//    }
+    operation
 
     if (session != null){
       session.close()

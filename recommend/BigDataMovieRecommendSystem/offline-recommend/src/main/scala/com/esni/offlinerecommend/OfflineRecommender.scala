@@ -4,7 +4,7 @@ import java.io.InputStream
 import java.util.Properties
 
 import com.esni.offlinerecommend.als.ALSTrainer
-import com.esni.offlinerecommend.bean.{MovieSimMatrix, OfflineMovieRecommend, OfflineUserRecommend}
+import com.esni.offlinerecommend.bean.{MovieSimMatrix, OfflineUserRecommend}
 import com.esni.offlinerecommend.utils.RatingUtil
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
@@ -95,14 +95,14 @@ object OfflineRecommender {
 
   def main(args: Array[String]): Unit = {
 
-    val ratings = RatingUtil.getRatings("D:\\Projects\\dpystem\\recommend\\testData\\ur.log",
-      "D:\\Projects\\dpystem\\recommend\\testData\\ub.log", sc)
+    val ratings = RatingUtil.getRatings("D:\\Projects\\dpystem\\recommend\\testData2.0\\ur",
+      "D:\\Projects\\dpystem\\recommend\\testData2.0\\ub", sc)
     val trainer = new ALSTrainer(ratings)
     trainer.trainModel(90, 0.01)
 
-//    val userAndMovieId = RatingUtil.getUserAndMovieId(sc)
+    val userAndMovieId = RatingUtil.getUserAndMovieId(sc)
 
-//    recommendDependOnUser(trainer, userAndMovieId)
+    recommendDependOnUser(trainer, userAndMovieId)
     recommendDependOnMovie(trainer)
 
     session.close()

@@ -30,7 +30,8 @@ class ArgumentsTuningService(rddFromMysqlDao: RddFromMysqlDao) extends Recommend
     val realRatings = getRealRatings(ratings)
 
 
-    val rmses = for (rank <- Array(60, 70, 80, 90); lambda <- Array(1, 0.1, 0.01)) yield {
+//    val rmses = for (rank <- Array(60, 70, 80, 90); lambda <- Array(1, 0.1, 0.01)) yield {
+    val rmses = for (rank <- Array(60); lambda <- Array(1)) yield {
       val predictRatings = trainer.predict(userAndMovieId, rank, lambda)
         .map(x => ((x.user, x.product), x.rating))
 

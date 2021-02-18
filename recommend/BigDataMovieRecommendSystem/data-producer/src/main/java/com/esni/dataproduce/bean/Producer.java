@@ -90,7 +90,7 @@ public class Producer {
         int movieId = getRandomMovieId();
 
         while (behavior == null) {
-            int key = getRandomNumber(0, 3);
+            int key = getRandomNumber(0, 4);
 
             if (key == 0) {
                 behavior = "click";
@@ -107,7 +107,7 @@ public class Producer {
                 likeMap.get(userID).add(movieId);
                 behavior = "like";
             }
-            else{
+            if (key == 3) {
                 //如果电影未被收藏则不能取消收藏
                 if (!likeMap.get(userID).contains(movieId)){
                     continue;
@@ -116,6 +116,10 @@ public class Producer {
                 likeMap.get(userID).remove(movieId);
                 behavior = "unlike";
             }
+//            else{
+//                logScore(userID, movieId);
+//            }
+
         }
 
         logUserBehavior(userID, movieId, behavior);
@@ -124,25 +128,25 @@ public class Producer {
 
     /**
      * 初始化评分数据，会遍历每一位用户并为他们随机对电影进行评分
-     * 70%的用户会评分0-10部电影
-     * 20%的用户会评分11-20部电影
-     * 10%的用户会评分21-50部电影
+     * 70%的用户会评分1-30部电影
+     * 20%的用户会评分31-60部电影
+     * 10%的用户会评分61-100部电影
      */
     private void initScore() {
 
         for (int userId = userStarIndex; userId <= userEndIndex; userId++) {
 
             int userLevel = getRandomNumber(1, 10);
-            int s = 21;
-            int e = 50;
+            int s = 61;
+            int e = 100;
 
             if (userLevel <= 7) {
-                s = 0;
-                e = 10;
+                s = 1;
+                e = 31;
             }
             else if (userLevel <= 9) {
-                s = 11;
-                e = 20;
+                s = 31;
+                e = 60;
             }
 
             for (int i = 0; i < getRandomNumber(s, e); i++) {
@@ -163,7 +167,7 @@ public class Producer {
             initScore();
         }
 
-        for (int i = 0; i < 20000; i++) {
+        for (int i = 0; i < 110000; i++) {
             //随机产生行为数据
             randomLogBehavior();
         }

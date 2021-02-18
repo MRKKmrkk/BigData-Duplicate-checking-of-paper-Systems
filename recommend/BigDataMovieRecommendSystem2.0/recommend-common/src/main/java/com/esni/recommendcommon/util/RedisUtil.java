@@ -10,13 +10,13 @@ public class RedisUtil {
     public static Jedis getJedis() throws IOException {
 
         Properties properties = PropertiesUtil.getProperties("redis.properties");
-        return new Jedis(properties.getProperty("redis.host"), Integer.parseInt(properties.getProperty("redis.port")));
+        return new Jedis(properties.getProperty("redis.host"), Integer.parseInt(properties.getProperty("redis.port")), 100000);
 
     }
 
     public static Jedis getJedis(Properties properties){
 
-        return new Jedis(properties.getProperty("redis.host"), Integer.parseInt(properties.getProperty("redis.port")));
+        return new Jedis(properties.getProperty("redis.host"), Integer.parseInt(properties.getProperty("redis.port")), 100000);
 
     }
 
