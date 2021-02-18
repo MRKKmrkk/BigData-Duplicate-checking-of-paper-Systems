@@ -2,10 +2,11 @@ package com.esni.realtimerecommend.util
 
 import java.sql.{Connection, DriverManager, PreparedStatement, ResultSet}
 
-object MysqlUtil{
+object MysqlUtil extends Serializable {
 
   private val connection: Connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/train", "root", "mailbox330.")
   private val preSatement: PreparedStatement = connection.prepareStatement("select movie_matrix from movie_sim_matrix where movie_id = ?")
+  private val savePreSatement: PreparedStatement = connection.prepareStatement("replace into movie_realtime_recommend() values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")
 
   // 初始化表
   private val initPreparedStatement: PreparedStatement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS movie_realtime_recommend(user_id INT, movie_1 INT, movie_2 INT, movie_3 INT, movie_4 INT, movie_5 INT, movie_6 INT, movie_7 INT, movie_8 INT, movie_9 INT, movie_10 INT)")
@@ -13,6 +14,9 @@ object MysqlUtil{
   initPreparedStatement.close()
 
 
+  /**
+    * 以Array形式获取一个电影的相似度矩阵
+    */
   def getMovieMatrixAsArray(id: Int): Array[(Int, Double)] = {
 
     preSatement.setInt(1, id)
@@ -34,6 +38,9 @@ object MysqlUtil{
 
   }
 
+  /**
+    * 以map形式获取一个电影的相似度矩阵
+    */
   def getMovieMatrixAsMap(id: Int): Map[Int, Double] = {
 
     val matrix = getMovieMatrixAsArray(id)
@@ -47,9 +54,10 @@ object MysqlUtil{
     }
   }
 
+  /**
+    * 保存实时电影推荐结果到数据表
+    */
   def saveRealTimeMovieRecommend(userId: Int, recommendMovies: Array[(Int, Double)]): Unit = {
-
-    val savePreSatement: PreparedStatement = connection.prepareStatement("insert into movie_realtime_recommend() values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")
 
     val arrLength = recommendMovies.length
     savePreSatement.setInt(1, userId)
@@ -64,12 +72,15 @@ object MysqlUtil{
     }
 
     savePreSatement.execute()
-    savePreSatement.close()
 
   }
 
+  /**
+    * 关闭连接回收资源
+    */
   def close(): Unit = {
 
+    savePreSatement.close()
     preSatement.close()
     connection.close()
 

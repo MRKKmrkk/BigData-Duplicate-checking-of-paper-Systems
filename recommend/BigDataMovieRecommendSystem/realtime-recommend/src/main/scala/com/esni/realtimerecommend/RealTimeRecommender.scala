@@ -1,12 +1,10 @@
 package com.esni.realtimerecommend
 
 import java.io.InputStream
-import java.sql.{Connection, DriverManager}
 import java.util.Properties
 
+import com.esni.realtimerecommend.util.MysqlUtil
 import org.apache.kafka.common.serialization.StringDeserializer
-import org.apache.spark.broadcast.Broadcast
-import org.apache.spark.rdd.JdbcRDD
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.streaming.kafka010.{ConsumerStrategies, KafkaUtils, LocationStrategies}
 import org.apache.spark.streaming.{Seconds, StreamingContext}
@@ -15,29 +13,23 @@ import redis.clients.jedis.Jedis
 
 import scala.collection.JavaConversions._
 
-object ConnectionHelper{
-
-  def getConnection() : Connection = {
-
-    DriverManager.getConnection("jdbc:mysql://localhost:3306/train", "root", "mailbox330.")
-
-  }
-
-}
-
 object RealTimeRecommender {
 
-  val conf: SparkConf = new SparkConf().setAppName("RealTime Recommender").setMaster("local[*]")
+  // 配置spark环境
+  val conf: SparkConf = new SparkConf().setAppName("RealTime Recommender Demo").setMaster("local[*]")
   val session: SparkSession = SparkSession.builder().config(conf).getOrCreate()
   val sc: SparkContext = session.sparkContext
   val ssc = new StreamingContext(sc, Seconds(2))
 
+  // 获取配置文件
   private val in: InputStream = Thread.currentThread().getContextClassLoader.getResourceAsStream("realtime-recommender.properties")
   val properties = new Properties()
   properties.load(in)
 
+  // 配置redis
   private val jedis = new Jedis(properties.getProperty("redis.host"), properties.getProperty("redis.port").toInt)
 
+  // 配置kafka信息
   private val kafkaParams = Map(
     "bootstrap.servers" -> properties.getProperty("bootstrap.servers"),
     "key.deserializer" -> classOf[StringDeserializer],
@@ -47,10 +39,8 @@ object RealTimeRecommender {
   )
   val topics: Array[String] = properties.getProperty("topics").split(",")
 
-  /////////////////////////算法开始实现//////////////////////////////////////
-
   /**
-    * 获取用户最近评分电影
+    * 获取用户最近limit个评分电影
     */
   def getUserRecentScore(userId: Int, limit: Int): Array[(Int, Double)] = {
 
@@ -59,95 +49,120 @@ object RealTimeRecommender {
       .map{line =>
         val fields = line.split(":")
         (fields(0).trim.toInt, fields(1).trim.toDouble)
-      }.toArray
+      }
+      .toArray
+      .take(10)
 
   }
-
-//  /**
-//    * 获取mysql连接对象
-//    */
-//  def getConnection(): Connection = {
-//
-//    DriverManager.getConnection(properties.getProperty("uri"), properties.getProperty("user"), properties.getProperty("password"))
-//
-//  }
 
   /**
     * 获取某个电影的前limit个相似电影
     */
-  def getTopSimMovie(movieId: Int, limit: Int, broad: Broadcast[collection.Map[Int, Map[Int, Double]]]): Array[(Int, Double)] = {
+  def getTopSimMovie(movieId: Int, limit: Int): Array[Int] = {
 
-    val movieSimMatrix =broad.value
-    movieSimMatrix(movieId).toArray.take(limit)
+    MysqlUtil
+      .getMovieMatrixAsArray(movieId)
+      .take(limit)
+      .map(_._1)
 
   }
 
   /**
     * 从电影相似度矩阵中，获取投票电影与相似电影的相似度
     */
-  def getMovieSim(scoreMovie: Int, simMvie: Int, broad: Broadcast[collection.Map[Int, Map[Int, Double]]]): Double = {
+  def getMovieSim(scoreMovie: Int, simMovie: Int, simRecs: scala.collection.mutable.HashMap[Int, Map[Int, Double]]): Double = {
 
-    val movieSimMatrix =broad.value
-
-    movieSimMatrix.get(scoreMovie) match {
-      case Some(simMap) => simMap.get(simMvie) match {
-        case Some(sim) => sim
-        case None => 0.0
+    simRecs.get(scoreMovie) match {
+      case Some(simMovies) => {
+        simMovies.get(simMovie) match {
+          case Some(sim) => sim
+          case None => 0.0
+        }
       }
       case None => 0.0
     }
 
   }
 
+  /**
+    * 计算对数
+    */
   def log(m: Int): Double = {
+
+    if (m == 0) {
+      return 0.0
+    }
+
     math.log(m) / math.log(2)
+
   }
 
   /**
     * 计算电影推荐的优先级
     */
-  def computePriority(recentScoreMovies: Array[(Int, Double)], simMovies: Array[(Int, Double)], broad: Broadcast[collection.Map[Int, Map[Int, Double]]]): Array[(Int, Double)] = {
+  def computePriority(recentScoreMovies: Array[(Int, Double)], simMovies: Array[Int], simRecs: scala.collection.mutable.HashMap[Int, Map[Int, Double]]): Array[(Int, Double)] = {
 
-    val moviePrioritys = scala.collection.mutable.ArrayBuffer[(Int, Double)]()
-    val increMap = scala.collection.mutable.HashMap[Int, Int]()
-    val decreMap = scala.collection.mutable.HashMap[Int, Int]()
+    // 存放电影与优先级
+    val prioritys = scala.collection.mutable.ArrayBuffer[(Int, Double)]()
+    //存放增强因子
+    val in = scala.collection.mutable.HashMap[Int, Int]()
+    // 存放减弱因子
+    val de = scala.collection.mutable.HashMap[Int, Int]()
 
-    for (simMovie <- simMovies; scoreMovie <- recentScoreMovies){
-      val sim = getMovieSim(scoreMovie._1, simMovie._1, broad)
-      if (sim > 0.6){
-        moviePrioritys += ((simMovie._1, sim * scoreMovie._2))
-        if (scoreMovie._2 > 3){
-          increMap(simMovie._1) = increMap.getOrDefault(simMovie._1, 0) + 1
+    for (top <- simMovies; recentScore <- recentScoreMovies) {
+      print("==")
+      // 计算此电影的相似电影与近期投票电影的相似度
+      val sim = getMovieSim(top, recentScore._1, simRecs)
+
+      // 相似度小于0.3的相似电影会被忽略
+      if (sim > 0.3){
+        // 计算相似电影的优先级优先级
+        prioritys +=  ((top, sim * recentScore._2.formatted("%.2f").toDouble))
+        // 判断近期电影的投票，大于三增加增强因子，小于三增加减弱因子
+        if (recentScore._2 > 3){
+          in(top) = in.getOrDefault(top, 0) + 1
+          de(top) = de.getOrDefault(top, 0)
         }
         else{
-          decreMap(simMovie._1) = decreMap.getOrDefault(simMovie._1, 0) + 1
+          de(top) = de.getOrDefault(top, 0) + 1
+          in(top) = in.getOrDefault(top, 0)
         }
       }
+
     }
 
-    moviePrioritys
+    prioritys
       .groupBy(_._1)
       .map{case (movieId, priority) =>
-        (movieId, priority.map(_._2).sum / priority.length + log(increMap(movieId)) - log(decreMap(movieId)))
-      }.toArray
+        (
+          movieId,
+          priority.map(_._2).sum / priority.length
+            + log(in(movieId))
+            - log(de(movieId))
+        )
+      }
+      .toArray
+
+  }
+
+  /**
+    * 获取所有相似电影的相似度矩阵
+    */
+  def getSimRec(simMovies: Array[Int]): scala.collection.mutable.HashMap[Int, Map[Int, Double]] = {
+
+    val simRecs = scala.collection.mutable.HashMap[Int, Map[Int, Double]]()
+
+    simMovies
+      .foreach{
+        movieId =>
+          simRecs(movieId) = MysqlUtil.getMovieMatrixAsMap(movieId)
+      }
+
+    simRecs
 
   }
 
   def main(args: Array[String]): Unit = {
-
-    //获取电影相似度矩阵,添加到广播变量
-    val movieSimMatrix: collection.Map[Int, Map[Int, Double]] = new JdbcRDD(sc, ConnectionHelper.getConnection, "select movie_id,movie_matrix from movie_sim_matrix where movie_id <= ? and movie_id >= ?", 1000000, 0, 2, rs => {
-      (rs.getInt(1), rs.getString(2))
-    })
-      .map { case (userId, simMatrix) =>
-        val smMap = simMatrix.split(" ")
-          .map(_.split(":"))
-          .map(x => (x(0).toInt, x(1).toDouble))
-          .toMap
-        (userId, smMap)
-      }
-      .collectAsMap()
-    val broad: Broadcast[collection.Map[Int, Map[Int, Double]]] = sc.broadcast(movieSimMatrix)
 
     val kafkaDataStream = KafkaUtils.createDirectStream[String, String](
       ssc,
@@ -164,15 +179,20 @@ object RealTimeRecommender {
     scoreStream.foreachRDD{rdd =>
       rdd
         .map{ case (userId, movieId, score, timestamp) =>
-            val recentScoreMovies = getUserRecentScore(userId, 10)
-            val simMovies = getTopSimMovie(movieId, 10, broad)
-            val result: Array[(Int, Double)] = computePriority(recentScoreMovies, simMovies, broad)
-            result
-        }.foreach(println)
+          val recentScoreMovies = getUserRecentScore(userId, 10)
+          val simMovies = getTopSimMovie(movieId, 10)
+          val simRecs: scala.collection.mutable.HashMap[Int, Map[Int, Double]] = getSimRec(simMovies)
+
+          val result: Array[(Int, Double)] = computePriority(recentScoreMovies, simMovies, simRecs: scala.collection.mutable.HashMap[Int, Map[Int, Double]])
+          MysqlUtil.saveRealTimeMovieRecommend(userId, result)
+
+        }.count()
     }
 
     ssc.start()
     ssc.awaitTermination()
+    jedis.close()
+    MysqlUtil.close()
 
   }
 
