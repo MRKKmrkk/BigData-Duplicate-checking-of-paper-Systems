@@ -1,12 +1,15 @@
 package com.esni.dataproduce.bean;
 
+import com.esni.dataproduce.util.RedisUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Properties;
 
-public class Producer {
+public class NewProduce {
 
     private Logger logger;
     private Properties properties;
@@ -16,7 +19,7 @@ public class Producer {
     private int userStarIndex;
     private int userEndIndex;
 
-    public Producer(String resourceName) throws IOException {
+    public NewProduce(String resourceName) throws IOException {
 
         logger = LoggerFactory.getLogger("data-producer");
         properties = new Properties();
@@ -55,10 +58,13 @@ public class Producer {
 
     /**
      * 将用户评分写入日志
+     * 并缓存到redis
      */
     private void logScore(int userId, int movieId) {
 
-        logger.info("rating:" + userId + "\t" + movieId + "\t" + getRandomNumber(0, 5) + "\t" + System.currentTimeMillis());
+        int score = getRandomNumber(0, 5);
+        logger.info("rating:" + userId + "\t" + movieId + "\t" + score + "\t" + System.currentTimeMillis());
+        RedisUtil.cacheScore(userId, movieId, score);
 
     }
 
@@ -83,12 +89,9 @@ public class Producer {
     /**
      * 获取随机行为
      */
-    private void randomLogBehavior() {
+    private void randomLogBehavior(int userID, int movieId) {
 
         String behavior = null;
-        int userID = getRandomUserId();
-        int movieId = getRandomMovieId();
-
         while (behavior == null) {
             int key = getRandomNumber(0, 3);
 
@@ -128,26 +131,40 @@ public class Producer {
      * 70%的用户会评分1-30部电影
      * 20%的用户会评分31-60部电影
      * 10%的用户会评分61-100部电影
+     *
+     * 初始化用户行为
+     * 70%的用户会产生30-100次行为
+     * 20%的用户会产生101-300次行为
+     * 10%的用户会产生301-500次行为
      */
-    private void initScore() {
+    public void initData() {
 
         for (int userId = userStarIndex; userId <= userEndIndex; userId++) {
 
             int userLevel = getRandomNumber(1, 10);
-            int s = 61;
-            int e = 100;
+            int scoreStart = 61;
+            int scoreEnd = 100;
+            int behaviorStart = 301;
+            int behaviorEnd = 500;
 
             if (userLevel <= 7) {
-                s = 1;
-                e = 31;
+                scoreStart = 1;
+                scoreEnd = 31;
+                behaviorStart = 30;
+                behaviorEnd = 100;
             }
             else if (userLevel <= 9) {
-                s = 31;
-                e = 60;
+                scoreStart = 31;
+                scoreEnd = 60;
+                behaviorStart = 101;
+                behaviorEnd = 300;
             }
 
-            for (int i = 0; i < getRandomNumber(s, e); i++) {
+            for (int i = 0; i < getRandomNumber(scoreStart, scoreEnd); i++) {
                 logScore(userId, getRandomMovieId());
+            }
+            for (int i = 0; i < getRandomNumber(behaviorStart, behaviorEnd); i++) {
+                randomLogBehavior(userId, getRandomMovieId());
             }
 
         }
@@ -157,16 +174,23 @@ public class Producer {
     /**
      * 模拟生产用户日志
      */
-    public void produce(boolean isInitScoreData) {
+    public void produce(boolean isInitData) {
 
         //初始化评分数据
-        if (isInitScoreData) {
-            initScore();
+        if (isInitData) {
+            initData();
         }
 
-        for (int i = 0; i < 110000; i++) {
-            //随机产生行为数据
-            randomLogBehavior();
+        // 随机产生用户行为和电影评分
+        // 产生电影评分的概率为1/4
+        while (true){
+            int flag = getRandomNumber(1, 10);
+            if (flag > 2) {
+                logScore(getRandomUserId(), getRandomMovieId());
+            }
+            else{
+                randomLogBehavior(getRandomUserId(), getRandomMovieId());
+            }
         }
 
     }
